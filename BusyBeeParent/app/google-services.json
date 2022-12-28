@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "899253601642",
+    "project_id": "busybee-672d7",
+    "storage_bucket": "busybee-672d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899253601642:android:de225b76209475f76f1113",
+        "android_client_info": {
+          "package_name": "poize.busybee_parent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899253601642-f2fl8odlm7jm8ui09htn7j97tk3537op.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9_gXjway6w-G83PeunYVxzeEAg08xEgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899253601642-f2fl8odlm7jm8ui09htn7j97tk3537op.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
