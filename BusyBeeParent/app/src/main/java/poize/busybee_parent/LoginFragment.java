@@ -75,7 +75,7 @@ public class LoginFragment extends Fragment {
         String Email = sharedPreferences.getString("email",null);
         String Pass = sharedPreferences.getString("pass",null);
 
-        if(Email == null || Pass ==null){
+        if(Email == null || Pass == null){
 
             tv_loginToSignup.setOnClickListener(view1 -> {
                     fragmentSwitch(new SignupFragment());

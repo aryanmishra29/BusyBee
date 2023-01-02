@@ -71,7 +71,7 @@ public class LoginFragment extends Fragment {
         String Email = sharedPreferences.getString("email",null);
         String Pass = sharedPreferences.getString("pass",null);
 
-        if(Email == null || Pass ==null){
+        if(Email==null || Pass==null){
             firebaseAuth = FirebaseAuth.getInstance();
 
             buttn_login.setOnClickListener(view12 -> {
