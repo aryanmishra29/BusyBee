@@ -34,6 +34,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        Objects.requireNonNull(getSupportActionBar()).setTitle(Html.fromHtml("<font color=\"black\">" + "BusyBee" + "</font>"));
 
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("userPref", Context.MODE_PRIVATE);
+        String Email = sharedPreferences.getString("email",null);
+        String Pass = sharedPreferences.getString("pass",null);
+
+        if(Email == null || Pass == null){
+            fragmentSwitch(new LoginFragment());
+        }
+        else{
+           fragmentSwitch(new DashboardFragment());
+        }
+
+
         drawerLayout = findViewById(R.id.drawer_homeScreen);
         navView_HomeScreen = findViewById(R.id.navView_homeScreen);
 
@@ -44,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         navView_HomeScreen.setNavigationItemSelectedListener(this);
+
 
     }
 

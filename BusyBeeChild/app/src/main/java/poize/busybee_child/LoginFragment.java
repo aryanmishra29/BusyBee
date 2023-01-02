@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,9 +103,13 @@ public class LoginFragment extends Fragment {
 
         }
         else{
-            //TODO: Directly send to the home fragment
+            fragmentSwitch(new TaskFragment());
         }
 
         return view;
+    }
+    private void fragmentSwitch(Fragment fragment){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.frame_homeScreen, fragment).commit();
     }
 }

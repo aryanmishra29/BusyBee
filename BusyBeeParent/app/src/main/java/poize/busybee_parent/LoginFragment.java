@@ -96,6 +96,7 @@ public class LoginFragment extends Fragment {
                                     editor.putString("pass", pass);
                                     editor.apply();
                                     Toast.makeText(getActivity(),"Login Successful",Toast.LENGTH_SHORT).show();
+                                    fragmentSwitch(new DashboardFragment());
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -112,9 +113,8 @@ public class LoginFragment extends Fragment {
 
         }
         else{
-            //TODO: Directly send to the home fragment
+            fragmentSwitch(new DashboardFragment());
         }
-
 
         return view;
     }

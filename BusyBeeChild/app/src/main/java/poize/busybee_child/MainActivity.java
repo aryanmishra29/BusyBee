@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             switchFragment(new LoginFragment());
         }
         else{
-            switchFragment(new HomeFragment());
+            switchFragment(new TaskFragment());
         }
     }
 
