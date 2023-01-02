@@ -77,40 +77,36 @@ public class LoginFragment extends Fragment {
 
         if(Email == null || Pass ==null){
 
-            tv_loginToSignup.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            tv_loginToSignup.setOnClickListener(view1 -> {
                     fragmentSwitch(new SignupFragment());
-                }
+                    Toast.makeText(getActivity(),"SignUp",Toast.LENGTH_SHORT).show();
             });
 
             firebaseAuth = FirebaseAuth.getInstance();
-            buttn_login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    email = et_email.getText().toString().trim();
-                    pass = et_pass.getText().toString().trim();
-                    editor.putString("email", email);
-                    editor.putString("pass", pass);
-                    editor.apply();
-                    if(email != null && pass !=null){
-                        firebaseAuth.signInWithEmailAndPassword(email,pass)
-                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(getActivity(),"Login Successful",Toast.LENGTH_SHORT).show();
-                                        //TODO: add to shared pref
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
 
-                                    }
-                                });
-                    }else {
-                        Snackbar.make(view.findViewById(R.id.loginScreen), "Empty Email or Password", Snackbar.LENGTH_SHORT).show();
-                    }
+            buttn_login.setOnClickListener(view12 -> {
+                email = et_email.getText().toString().trim();
+                pass = et_pass.getText().toString().trim();
+                if(!email.isEmpty() && !pass.isEmpty()){
+                    firebaseAuth.signInWithEmailAndPassword(email,pass)
+                            .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                @Override
+                                public void onSuccess(AuthResult authResult) {
+                                    editor.putString("email", email);
+                                    editor.putString("pass", pass);
+                                    editor.apply();
+                                    Toast.makeText(getActivity(),"Login Successful",Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                else {
+                    Toast.makeText(getActivity(),"Empty Email or Password",Toast.LENGTH_SHORT).show();
                 }
             });
 

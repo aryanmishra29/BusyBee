@@ -3,16 +3,23 @@ package poize.busybee_parent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Html;
+import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -24,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        to change the text color in action bar
+//        Objects.requireNonNull(getSupportActionBar()).setTitle(Html.fromHtml("<font color=\"black\">" + "BusyBee" + "</font>"));
+
         setContentView(R.layout.activity_main);
         drawerLayout = findViewById(R.id.drawer_homeScreen);
         navView_HomeScreen = findViewById(R.id.navView_homeScreen);
@@ -32,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         navView_HomeScreen.setNavigationItemSelectedListener(this);
 
@@ -48,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        item.setChecked(true);
+        drawerLayout.closeDrawer(GravityCompat.START);
         switch(item.getItemId()){
             case R.id.nav_account:{
                 //TODO: fragmentswitch to Account FRAGMENT
@@ -56,9 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 SharedPreferences sharedPreferences = getSharedPreferences("userPref", Context.MODE_PRIVATE);
                 sharedPreferences.edit().clear().commit();
                 fragmentSwitch(new LoginFragment());
-                drawerLayout.close();
             }
-
         }
         return false;
     }
