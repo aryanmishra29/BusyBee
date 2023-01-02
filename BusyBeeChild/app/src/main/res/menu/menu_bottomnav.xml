@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomNav_Tasks"
+        android:title="Tasks"
+        android:icon="@drawable/taskicon"/>
+    <item
+        android:id="@+id/bottomNav_game"
+        android:title="Let's Play"
+        android:icon="@drawable/videogame"/>
+    <item
+        android:id="@+id/bottomNav_store"
+        android:title="Honey Pot"
+        android:icon="@drawable/piggybank"/>
+
+
+</menu>
