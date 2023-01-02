@@ -19,22 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         frame_homeScreen = findViewById(R.id.frame_homeScreen);
-        SharedPreferences sharedPreferences = getSharedPreferences("userPref", Context.MODE_PRIVATE);
-        String Email = sharedPreferences.getString("email",null);
-        String Pass = sharedPreferences.getString("pass",null);
 
-        if(Email == null || Pass == null){
-            switchFragment(new LoginFragment());
-        }
-        else{
-            switchFragment(new TaskFragment());
-        }
     }
 
     private void switchFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.frame_homeScreen , fragment)
+                .replace(R.id.frame_homeScreen, fragment)
                 .commit();
     }
 }
