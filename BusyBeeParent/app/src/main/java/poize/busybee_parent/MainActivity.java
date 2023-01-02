@@ -7,6 +7,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -44,11 +46,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-    private void fragmentSwitch(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_navigation, fragment).commit();
-    }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
@@ -56,12 +53,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //TODO: fragmentswitch to Account FRAGMENT
             }
             case R.id.nav_logout:{
+                SharedPreferences sharedPreferences = getSharedPreferences("userPref", Context.MODE_PRIVATE);
+                sharedPreferences.edit().clear().commit();
                 fragmentSwitch(new LoginFragment());
                 drawerLayout.close();
-                //TODO: remove from shared pref
             }
 
         }
         return false;
     }
+
+    private void fragmentSwitch(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.frame_navigation, fragment).commit();
+    }
+
+
 }
