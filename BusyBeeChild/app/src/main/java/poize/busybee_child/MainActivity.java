@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
                 case R.id.bottomNav_game:{
-
+                    switchFragment(new GameFragment());
                     break;
                 }
                 case R.id.bottomNav_store:{
-
+                    switchFragment(new HoneypotFragment());
                     break;
                 }
             }
