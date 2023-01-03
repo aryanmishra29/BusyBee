@@ -72,8 +72,7 @@ public class DashboardFragment extends Fragment {
                 reward = Integer.parseInt(et_taskReward.getText().toString());
 
                 db.collection("Task")
-                        .document(FirebaseAuth.getInstance().getUid())
-                        .set(new TaskModel(task,reward,false))
+                        .add(new TaskModel(task,reward,false))
                         .addOnSuccessListener(documentReference -> Toast.makeText(getActivity(),"Task Set Successfully",Toast.LENGTH_SHORT).show())
                         .addOnFailureListener(e -> Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show());
             }
