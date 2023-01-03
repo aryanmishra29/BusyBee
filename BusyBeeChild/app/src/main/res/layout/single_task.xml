@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_task"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_taskName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/tv_taskReward"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:id="@+id/cb_task"
+            app:layout_constraintStart_toEndOf="@+id/ll_task"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

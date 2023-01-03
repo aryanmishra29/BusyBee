@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,18 +20,21 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskFragment extends Fragment {
 
-    private TextView tv_taskName;
-    private TextView tv_taskReward;
-    private Button button_isCompleted;
+    private RecyclerView rv_tasks;
     private FirebaseFirestore db;
-    private String task;
-    private long reward;
-    private boolean isCompleted;
+    private ArrayList<TaskModel> taskList;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private TaskAdapter taskAdapter;
 
     private String mParam1;
     private String mParam2;
@@ -60,34 +65,32 @@ public class TaskFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task, container, false);
-
-        tv_taskName = view.findViewById(R.id.tv_taskName);
-        tv_taskReward = view.findViewById(R.id.tv_taskReward);
-        button_isCompleted = view.findViewById(R.id.button_isCompleted);
+        rv_tasks = view.findViewById(R.id.rv_tasks);
+        rv_tasks.setLayoutManager(new LinearLayoutManager(getActivity()));
         db = FirebaseFirestore.getInstance();
+        taskList = new ArrayList<>();
+        taskAdapter = new TaskAdapter(taskList);
+        rv_tasks.setAdapter(taskAdapter);
 
-        DocumentReference document = db.collection("Task")
-                .document(FirebaseAuth.getInstance().getUid());
-
-        document.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-
-                if(documentSnapshot.exists()){
-                    task = documentSnapshot.get("task").toString();
-                    reward = (long) documentSnapshot.get("reward");
-                    tv_taskName.setText(task);
-                    tv_taskReward.setText(Long.toString(reward));
-                }
-
-            }
-        })
+        db.collection("Task")
+                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                        for(DocumentSnapshot d:list){
+                            TaskModel model = d.toObject(TaskModel.class);
+                            taskList.add(model);
+                        }
+                        taskAdapter.notifyDataSetChanged();
+                    }
+                })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
 
                     }
                 });
+
         return view;
     }
 }
