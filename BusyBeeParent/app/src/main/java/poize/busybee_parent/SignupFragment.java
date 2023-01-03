@@ -110,6 +110,9 @@ public class SignupFragment extends Fragment {
                 pass = et_pass.getText().toString();
                 childName = et_childName.getText().toString();
                 childDOB = myCalendar.getTime();
+                if(!parentName.isEmpty() && !email.isEmpty() && !pass.isEmpty() && !childName.isEmpty() && !childDOB.toString().isEmpty() ){
+
+                progressDialog.setMessage("Authenticating entered details");
                 progressDialog.show();
                 firebaseAuth.createUserWithEmailAndPassword(email,pass)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -126,11 +129,14 @@ public class SignupFragment extends Fragment {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                                 progressDialog.cancel();
-
                             }
-                        });
+                        }
+                        );}
+                else{
+                    Toast.makeText(getActivity(),"Please fill all fields",50).show();
+                }
             }
         });
 
