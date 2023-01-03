@@ -55,6 +55,7 @@
             android:id="@+id/et_loginPass"
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:inputType="textPassword"
             android:layout_gravity="center"
             android:padding="4dp"
             android:backgroundTint="#80533324"

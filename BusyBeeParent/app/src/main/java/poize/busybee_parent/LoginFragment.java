@@ -79,7 +79,7 @@ public class LoginFragment extends Fragment {
 
             tv_loginToSignup.setOnClickListener(view1 -> {
                     fragmentSwitch(new SignupFragment());
-                    Toast.makeText(getActivity(),"SignUp",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(),"SignUp",Toast.LENGTH_SHORT).show();
             });
 
             firebaseAuth = FirebaseAuth.getInstance();

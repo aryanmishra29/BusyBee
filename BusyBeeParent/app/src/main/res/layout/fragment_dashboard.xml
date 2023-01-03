@@ -8,13 +8,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-<<<<<<< HEAD
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="Dashboard"
-        android:textColor="@color/black"
-        android:textSize="40sp" />
-=======
         android:orientation="vertical">
         <EditText
             android:id="@+id/et_taskName"
@@ -38,6 +31,5 @@
     </LinearLayout>
 
 
->>>>>>> 10ce36ea5588dde9f7f5d5ee868cea08b8b2ce08
 
 </FrameLayout>
