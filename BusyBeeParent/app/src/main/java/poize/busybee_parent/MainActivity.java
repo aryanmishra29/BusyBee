@@ -17,74 +17,43 @@ import android.text.Html;
 import android.view.Gravity;
 import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
-    ActionBarDrawerToggle actionBarDrawerToggle;
-    NavigationView navView_HomeScreen;
+    BottomNavigationView bottomNav_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        to change the text color in action bar
-//        Objects.requireNonNull(getSupportActionBar()).setTitle(Html.fromHtml("<font color=\"black\">" + "BusyBee" + "</font>"));
 
         setContentView(R.layout.activity_main);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("userPref", Context.MODE_PRIVATE);
-        String Email = sharedPreferences.getString("email",null);
-        String Pass = sharedPreferences.getString("pass",null);
+        fragmentSwitch(new DashboardFragment());
 
-        if(Email == null || Pass == null){
-            fragmentSwitch(new LoginFragment());
-        }
-        else{
-           fragmentSwitch(new DashboardFragment());
-        }
+        bottomNav_home = findViewById(R.id.bottomNav_homeScreen);
 
-
-        drawerLayout = findViewById(R.id.drawer_homeScreen);
-        navView_HomeScreen = findViewById(R.id.navView_homeScreen);
-
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
-
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
-        navView_HomeScreen.setNavigationItemSelectedListener(this);
-
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        item.setChecked(true);
-        drawerLayout.closeDrawer(GravityCompat.START);
-        switch(item.getItemId()){
-            case R.id.nav_account:{
-                //TODO: fragmentswitch to Account FRAGMENT
+        bottomNav_home.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_dashboard:{
+                        fragmentSwitch(new DashboardFragment());
+                        break;
+                    }
+                }
+                return true;
             }
-            case R.id.nav_logout:{
-                SharedPreferences sharedPreferences = getSharedPreferences("userPref", Context.MODE_PRIVATE);
-                sharedPreferences.edit().clear().commit();
-                fragmentSwitch(new LoginFragment());
-            }
-        }
-        return false;
+        });
+
+
     }
+
+
 
     private void fragmentSwitch(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
