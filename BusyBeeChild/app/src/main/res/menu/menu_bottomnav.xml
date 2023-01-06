@@ -7,7 +7,7 @@
         android:icon="@drawable/taskicon"/>
     <item
         android:id="@+id/bottomNav_game"
-        android:title="Let's Play"
+        android:title="Fun &amp; Learn"
         android:icon="@drawable/videogame"/>
     <item
         android:id="@+id/bottomNav_store"

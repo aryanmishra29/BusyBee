@@ -45,8 +45,8 @@
             android:layout_marginEnd="25dp"
             android:layout_marginTop="80dp"
             android:layout_marginBottom="25dp"
-            android:background="#F44336"
-            app:cardCornerRadius="10dp"
+            android:backgroundTint="#80DEEA"
+            app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
