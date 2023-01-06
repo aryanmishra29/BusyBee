@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentSwitch(new FeedFragment());
 
         bottomNav_home = findViewById(R.id.bottomNav_homeScreen);
+        bottomNav_home.getMenu().getItem(1).setChecked(true);
 
         bottomNav_home.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){

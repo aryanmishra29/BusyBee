@@ -13,16 +13,26 @@
             android:id="@+id/tv_taskHeading"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="30dp"
-            android:layout_marginBottom="30dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginVertical="20dp"
             android:fontFamily="@font/aclonica"
             android:text="Let's Earn Some Honey!"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_taskHeading"
+            android:background="#423E3E"/>
 
         <LinearLayout
             app:layout_constraintTop_toBottomOf="@+id/tv_taskHeading"
