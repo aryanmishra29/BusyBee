@@ -12,8 +12,8 @@ body{
     margin: auto;
     left: 0;
     right: 0;
-    top: 30%;
-    bottom: -150px;
+    top: 20%;
+    bottom: -70px;
     border-radius: 50px;
     animation: fly 4s infinite;
   }
