@@ -45,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
                         fragmentSwitch(new DashboardFragment());
                         break;
                     }
+                    case R.id.nav_feed:{
+                        fragmentSwitch(new FeedFragment());
+                        break;
+                    }
+                    case R.id.nav_profile:{
+                        fragmentSwitch(new ProfileFragment());
+                        break;
+                    }
                 }
                 return true;
             }

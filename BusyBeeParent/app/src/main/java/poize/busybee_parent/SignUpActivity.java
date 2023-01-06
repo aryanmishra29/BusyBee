@@ -88,7 +88,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     progressDialog.cancel();
                                     firebaseFirestore.collection("User")
                                             .document(FirebaseAuth.getInstance().getUid())
-                                            .set(new UserModel(parentName, email, pass, childName, childDOB));
+                                            .set(new UserModel(parentName, email, pass, childName, childDOB,0));
                                     startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
 
                                 }

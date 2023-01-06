@@ -8,6 +8,7 @@ public class UserModel {
     private String pass;
     private String childName;
     private Date childDOB;
+    private long honey;
 
     public String getParentName() {
         return parentName;
@@ -17,12 +18,13 @@ public class UserModel {
         this.parentName = parentName;
     }
 
-    public UserModel(String parentName, String email, String pass, String childName, Date childDOB) {
+    public UserModel(String parentName, String email, String pass, String childName, Date childDOB, long honey) {
         this.parentName = parentName;
         this.email = email;
         this.pass = pass;
         this.childName = childName;
         this.childDOB = childDOB;
+        this.honey = honey;
     }
 
     public String getEmail() {

@@ -5,6 +5,9 @@ public class TaskModel {
     private int reward;
     private boolean isCompleted;
 
+    public TaskModel() {
+    }
+
     public String getTask() {
         return task;
     }
