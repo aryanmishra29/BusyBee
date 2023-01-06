@@ -55,27 +55,106 @@
         app:layout_constraintTop_toTopOf="@id/imageBack"
         android:text="BeeBee"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chatRecylcerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:overScrollMode="never"
-        android:padding="26dp"
-        android:visibility="gone"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/chatRecylcerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:clipToPadding="false"-->
+<!--        android:orientation="vertical"-->
+<!--        android:overScrollMode="never"-->
+<!--        android:padding="26dp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/viewBackground"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/imageBack"/>-->
+
+
+    <TextView
+        android:id="@+id/textMessage1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_sent_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/viewBackground"
-        app:layout_constraintTop_toBottomOf="@id/imageBack"/>
-    
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="@id/viewBackground"
-        app:layout_constraintEnd_toEndOf="@id/viewBackground"
-        app:layout_constraintStart_toStartOf="@id/viewBackground"
-        app:layout_constraintTop_toTopOf="@id/viewBackground"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textMessage2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:background="@drawable/bg_received_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
+        android:id="@+id/textMessage3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_sent_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textMessage4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:background="@drawable/bg_received_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:layout_marginBottom="30dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
+        android:id="@+id/textMessage5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_sent_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textMessage6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:background="@drawable/bg_received_message"
+        android:padding="16dp"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:layout_marginBottom="30dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
 
     <FrameLayout
         android:id="@+id/layoutSend"
@@ -92,6 +171,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
+            android:clickable="true"
             android:padding="10dp"
             android:src="@drawable/ic_send"/>
 
