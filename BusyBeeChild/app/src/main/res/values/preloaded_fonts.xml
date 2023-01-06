@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/akaya_telivigala</item>
         <item>@font/alata</item>
+        <item>@font/alex_brush</item>
         <item>@font/allura</item>
         <item>@font/amarante</item>
     </array>
