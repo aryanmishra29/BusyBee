@@ -81,6 +81,26 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="3dp"
+                    android:src="@drawable/gtbt_icon"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="18sp"
+                    android:text="Good/Bad Touch "
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -163,7 +183,27 @@
             app:layout_constraintTop_toBottomOf="@id/cv_03"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            tools:layout_editor_absoluteY="100dp" />
+            tools:layout_editor_absoluteY="100dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_margin="3dp"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/lock"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="18sp"
+                    android:text="Game 02"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_06"
@@ -177,7 +217,27 @@
             app:layout_constraintTop_toBottomOf="@id/cv_04"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintLeft_toLeftOf="parent"
-            tools:layout_editor_absoluteY="100dp" />
+            tools:layout_editor_absoluteY="100dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_margin="3dp"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/lock"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="18sp"
+                    android:text="Game 01"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_07"
             android:layout_width="160dp"
@@ -190,7 +250,27 @@
             app:layout_constraintTop_toBottomOf="@id/cv_05"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            tools:layout_editor_absoluteY="100dp" />
+            tools:layout_editor_absoluteY="100dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <ImageView
+                android:layout_margin="3dp"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:src="@drawable/lock"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textSize="18sp"
+                android:text="Coming Soon..."
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_08"
@@ -204,7 +284,27 @@
             app:layout_constraintTop_toBottomOf="@id/cv_06"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintLeft_toLeftOf="parent"
-            tools:layout_editor_absoluteY="100dp" />
+            tools:layout_editor_absoluteY="100dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_margin="3dp"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/lock"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="18sp"
+                    android:text="Coming Soon..."
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
