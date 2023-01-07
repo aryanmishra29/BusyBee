@@ -9,7 +9,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.LinearLayout;
+
+import android.widget.Button;
+
 import android.widget.Toast;
 
 public class GameFragment extends Fragment {
@@ -21,6 +25,7 @@ public class GameFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    private Button chat_btn;
 
     public GameFragment() {
         // Required empty public constructor
@@ -52,7 +57,7 @@ public class GameFragment extends Fragment {
         ll_solarSystem = view.findViewById(R.id.ll_solarSystem);
 
         ll_solarSystem.setOnClickListener(view1 -> {
-            Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage("com.PlaneDetect.BusyBeeAR");
+            Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage("com.PlaneDetect.ARMplanedetection");
             if(intent != null){
                 startActivity(intent);
             }
@@ -67,6 +72,14 @@ public class GameFragment extends Fragment {
             Intent intent = new Intent(getActivity(),GoodTouchBadTouch.class);
             startActivity(intent);
         });
+        chat_btn = view.findViewById(R.id.chat_button);
+        chat_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),ChatbotActivity.class));
+            }
+        });
+
 
 
 
