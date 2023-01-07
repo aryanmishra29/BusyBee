@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatbotActivity"
+    android:animateLayoutChanges="true"
+    android:background="#FBC02D">
+
+    <View
+        android:id="@+id/viewBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_content_chat"
+        app:layout_constraintBottom_toTopOf="@+id/layoutSend"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageInfo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBack"
+        app:layout_constraintEnd_toStartOf="@id/imageInfo"
+        app:layout_constraintStart_toEndOf="@+id/imageBack"
+        app:layout_constraintTop_toTopOf="@id/imageBack"
+        android:text="BeeBee"/>
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/chatRecylcerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:clipToPadding="false"-->
+<!--        android:orientation="vertical"-->
+<!--        android:overScrollMode="never"-->
+<!--        android:padding="26dp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/viewBackground"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/imageBack"/>-->
+
+
+    <TextView
+        android:id="@+id/textMessage1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_sent_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textMessage2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:background="@drawable/bg_received_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
+        android:id="@+id/textMessage3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_sent_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textMessage4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:background="@drawable/bg_received_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:layout_marginBottom="30dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <TextView
+        android:id="@+id/textMessage5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_sent_message"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="18sp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textMessage6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        android:background="@drawable/bg_received_message"
+        android:padding="16dp"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:layout_marginBottom="30dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textMessage5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <FrameLayout
+        android:id="@+id/layoutSend"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_chat_input"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_send"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:clickable="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_send"/>
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/inputMessage"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_chat_input"
+        android:hint="Type a message"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/layoutSend"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

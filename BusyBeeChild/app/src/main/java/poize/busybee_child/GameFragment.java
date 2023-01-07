@@ -1,12 +1,15 @@
 package poize.busybee_child;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +64,15 @@ public class GameFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game, container, false);
 
+        CardView test = view.findViewById(R.id.cv_02);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),GoodTouchBadTouch.class);
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -62,8 +62,7 @@ public class TaskFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_task, container, false);
         rv_tasks = view.findViewById(R.id.rv_tasks);
         rv_tasks.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -73,22 +72,16 @@ public class TaskFragment extends Fragment {
         rv_tasks.setAdapter(taskAdapter);
 
         db.collection("Task")
-                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                        for(DocumentSnapshot d:list){
-                            TaskModel model = d.toObject(TaskModel.class);
-                            taskList.add(model);
-                        }
-                        taskAdapter.notifyDataSetChanged();
+                .get().addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                    for(DocumentSnapshot d:list){
+                        TaskModel model = d.toObject(TaskModel.class);
+                        taskList.add(model);
                     }
+                    taskAdapter.notifyDataSetChanged();
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+                .addOnFailureListener(e -> {
 
-                    }
                 });
 
         return view;

@@ -40,33 +40,30 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.tv_taskName.setText(taskList.get(position).getTask());
         holder.tv_taskReward.setText(taskList.get(position).getReward()+" Honey");
         holder.cb_task.setChecked(taskList.get(position).isCompleted());
-        holder.cb_task.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                compoundButton.setClickable(false);
-                FirebaseAuth auth = FirebaseAuth.getInstance();
-                FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-                firebaseFirestore.collection("User")
-                        .document(auth.getUid())
-                        .get()
-                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                            @Override
-                            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                honey = (long) documentSnapshot.get("Honey");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
+        holder.cb_task.setOnCheckedChangeListener((compoundButton, b) -> {
+            compoundButton.setClickable(false);
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+            FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+            firebaseFirestore.collection("User")
+                    .document(auth.getUid())
+                    .get()
+                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            honey = (long) documentSnapshot.get("Honey");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
 
-                            }
-                        });
+                        }
+                    });
 
-                honey += taskList.get(holder.getAdapterPosition()).getReward();
-                firebaseFirestore.collection("User")
-                        .document(auth.getUid())
-                        .update("Honey",honey);
-            }
+            honey += taskList.get(holder.getAdapterPosition()).getReward();
+            firebaseFirestore.collection("User")
+                    .document(auth.getUid())
+                    .update("Honey",honey);
         });
     }
 
