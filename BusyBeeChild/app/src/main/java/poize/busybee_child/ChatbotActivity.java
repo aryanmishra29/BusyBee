@@ -16,6 +16,7 @@ public class ChatbotActivity extends AppCompatActivity {
     private TextView[] tv;
     private String inMessage;
     private String outMessage;
+    int i=1;
 
 
     @Override
@@ -32,7 +33,7 @@ public class ChatbotActivity extends AppCompatActivity {
 
         iv_send = findViewById(R.id.iv_send);
         inputMessage = findViewById(R.id.inputMessage);
-        int i=0;
+
         iv_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,9 +48,17 @@ public class ChatbotActivity extends AppCompatActivity {
                     else if(inMessage.contains("happy")){
                         outMessage = "Your parents will be happy for that too.";
                     }
-                    tv[i].setText(inMessage);
-                    tv[i+1].setText(outMessage);
+                    else
+                        outMessage = "I see, tell me more on that sugar.";
+
+                    tv[i].setVisibility(View.VISIBLE);
+                    tv[i].setText(outMessage);
+                    tv[i+1].setVisibility(View.VISIBLE);
+                    tv[i+1].setText(inMessage);
+                    i+=2;
                 }
+
+
 
             }
         });

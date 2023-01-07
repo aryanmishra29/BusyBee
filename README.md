@@ -13,7 +13,7 @@ BusyBee is a parenting tool comprising of two Android Apps, for parent and for c
 4. The amount of honey child has is shown in the profile section of the app, it also has some valuable information.
 
 ### Child App:
-<img src ="/ScreenShots/child_tasks.jpg" height = 400/> <img src ="/ScreenShots/child_honeypot.jpg" height = 400/>
+<img src ="/ScreenShots/child_tasks.jpg" height = 400/> <img src ="/ScreenShots/child_honeypot.jpg" height = 400/> <img src ="/ScreenShots/child_funNlearn.jpg" height = 400/> <img src ="/ScreenShots/child_gtbt.jpg" height = 400/> <img src ="/ScreenShots/child_gtbt2.jpg" height = 400/> 
 
 1. The child app is made with easy and clean UI, suitable for children of year 6 to 12.
 2. It has the list of tasks set by parent and a checkbox to let parent know when the task is done.

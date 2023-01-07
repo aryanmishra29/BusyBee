@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 /**
@@ -26,6 +27,7 @@ public class GameFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button chat_btn;
 
     public GameFragment() {
         // Required empty public constructor
@@ -73,6 +75,14 @@ public class GameFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        chat_btn = view.findViewById(R.id.chat_button);
+        chat_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),ChatbotActivity.class));
+            }
+        });
+
 
 
 
