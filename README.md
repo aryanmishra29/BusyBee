@@ -4,4 +4,8 @@ BusyBee is a parenting tool comprising of two Android Apps, for parent and for c
 
 ## Features
 1. The parent app starts with a login and signup page.
-![Image can't be loaded](BusyBee/ScreenShots/login.jgp)
+![Image can't be loaded](/ScreenShots/login.jpg)
+2. Then the feed of parent is filled with valuable parenting tips, that change periodically.
+![Image can't be loaded](/ScreenShots/parent_feed.jpg)
+3. The parent can add the task and respective reward through this fragment of the app.
+![Image can't be loaded](/ScreenShots/login.jpg)
