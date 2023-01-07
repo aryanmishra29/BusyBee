@@ -9,21 +9,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link GameFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class GameFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private LinearLayout ll_solarSystem;
 
-    // TODO: Rename and change types of parameters
+
     private String mParam1;
     private String mParam2;
 
@@ -31,15 +26,6 @@ public class GameFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GameFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static GameFragment newInstance(String param1, String param2) {
         GameFragment fragment = new GameFragment();
         Bundle args = new Bundle();
@@ -61,17 +47,25 @@ public class GameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_game, container, false);
 
-        CardView test = view.findViewById(R.id.cv_02);
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(),GoodTouchBadTouch.class);
+        View view = inflater.inflate(R.layout.fragment_game, container, false);
+        ll_solarSystem = view.findViewById(R.id.ll_solarSystem);
+
+        ll_solarSystem.setOnClickListener(view1 -> {
+            Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage("com.PlaneDetect.BusyBeeAR");
+            if(intent != null){
                 startActivity(intent);
             }
+            else{
+                Toast.makeText(getActivity(),"The app you are looking for is not available",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        CardView test = view.findViewById(R.id.cv_02);
+        test.setOnClickListener(view12 -> {
+            Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(),GoodTouchBadTouch.class);
+            startActivity(intent);
         });
 
 
